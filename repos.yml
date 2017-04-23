@@ -1,8 +1,7 @@
 ---
 - name: Set up Katello
   hosts: all
- 
-- tasks: 
+  tasks: 
     
     - name: Enable Repos
       shell: hammer repository-set enable  --organization "Default Organization" > 
