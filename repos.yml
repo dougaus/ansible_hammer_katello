@@ -1,0 +1,16 @@
+---
+- name: Set up Katello
+  hosts: all
+ 
+- tasks 
+    
+    - name: Enable Repos
+      shell: hammer repository-set enable  --organization "Default Organization" --product "Red Hat Enterprise Linux Server" --name "Red Hat Enterprise Linux 6 Server (Kickstart)" \
+ --releasever "7Server" --basearch "x86_64"
+      environment:
+         SHELL: /bin/bash
+     
+      
+  
+  
+  
