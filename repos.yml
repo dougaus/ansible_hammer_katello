@@ -22,7 +22,7 @@
       when:  repositories_enabled.stdout.find('Red Hat Enterprise Linux 7 Server Kickstart x86_64 7Server') == -1
       become: true
       
-       - name: Enable Red Hat Enterprise Linux 7 Server (RPMs)
+      - name: Enable Red Hat Enterprise Linux 7 Server (RPMs)
       shell: > 
          hammer repository-set enable  
          --organization "Default Organization" 
