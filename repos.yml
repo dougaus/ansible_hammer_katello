@@ -2,6 +2,11 @@
 - name: Set up Katello
   hosts: all
   tasks: 
+  
+    - name: Check if repo enabled
+      shell: hammer repository list
+      register: repositories_enabled
+      become: true
     
     - name: Enable Repos
       shell: > 
@@ -13,6 +18,8 @@
          --basearch "x86_64"
       environment:
          SHELL: /bin/bash
+      when:  repositories_enabled.stdout.find('Red Hat Enterprise Linux 7 Server Kickstart x86_64 7Server') == -1
+      become: true
      
       
   
